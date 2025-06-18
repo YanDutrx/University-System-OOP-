@@ -1,5 +1,4 @@
-//Salvar o estado atual dos objetos em arquivos em formato binário para o seu computador
-//Sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória
+
 package MODELO.FUNCIONARIOS;
 
     public abstract class Funcionario 
