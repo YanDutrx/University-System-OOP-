@@ -9,13 +9,15 @@ package CONTROLADOR; //Essa classe sera responsavel por ser o controlador do sis
  * @author yanma
  */
 
-import MODELO.DEPARTAMENTO.Departamento; //Importa TUDO do pacote MODELO.FUNCIONARIOS (Mais pratico do que adicionar passo a passo)
-import MODELO.UNIVERSIDADE.Universidade;
+//Importando dos outros pacotes
+
+import MODELO.DEPARTAMENTO.Departamento;
 import MODELO.FUNCIONARIOS.Docente;
 import MODELO.FUNCIONARIOS.Efetivo;
 import MODELO.FUNCIONARIOS.Funcionario;
 import MODELO.FUNCIONARIOS.Substituto;
 import MODELO.FUNCIONARIOS.Tecnico;
+import MODELO.UNIVERSIDADE.Universidade;
 
 public class Controlador
 {
@@ -48,9 +50,10 @@ public class Controlador
 
                     if (aux_func != null) //evitando null pointer exception
                     {
+                    System.out.println("==== INFORMACOES DOS FUNCIONARIOS ====");
+                    
                         for (Funcionario func: aux_func)
                         {
-                            System.out.println("==== INFORMACOES DOS FUNCIONARIOS ====");
                             if (func != null) //Evitando null pointer exception
                             {
                                 func.exibir();
@@ -82,7 +85,9 @@ public class Controlador
             for (Departamento depto: aux) //For each
             {
                 if (depto != null)
+                {
                     depto.resumoDoDepartamento();
+                }
             }
         }
         else
@@ -119,10 +124,13 @@ public class Controlador
             System.out.println("==== RESUMO DE DEPARTAMENTOS COM GASTO ENTRE R$ "+inicio+ " E R$ "+fim);
             for (Departamento depto: aux)
             {
-                double gasto = depto.calcularTotalGasto();
-                if (gasto >= inicio && gasto <= fim)
+                if (depto != null)
                 {
-                    depto.resumoDoDepartamento();
+                    double gasto = depto.calcularTotalGasto();
+                    if (gasto >= inicio && gasto <= fim)
+                    {
+                        depto.resumoDoDepartamento();
+                    }
                 }
             }
         }
@@ -146,7 +154,10 @@ public class Controlador
                    {
                        if (funcionarios[i] != null) //evita o null pointer exception
                        {
-                           if (funcionarios[i].getSalario() >= inicio && funcionarios[i].getSalario() <= fim)
+                           double salarioFinal = funcionarios[i].calcularSalarios(); //Ja com as bonificacoes
+                           //Evita que o salario base seja calculado aqui
+
+                           if (salarioFinal >= inicio && salarioFinal <= fim)
                            {
                                funcionarios[i].exibir();
                            }
@@ -224,9 +235,8 @@ public class Controlador
                     return; //Encerro o metodo
                 }
             }
-        
-        System.out.println("Funcionario com codigo "+codigo+" NAO foi encontrado no sistema");
     }
+        System.out.println("Funcionario com codigo "+codigo+" NAO foi encontrado no sistema");
     }
     
     //Exibe todos os funcionarios de todos os departamentos

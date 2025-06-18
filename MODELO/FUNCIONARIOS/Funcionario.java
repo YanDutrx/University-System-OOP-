@@ -1,12 +1,6 @@
 //Salvar o estado atual dos objetos em arquivos em formato binário para o seu computador
 //Sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória
 package MODELO.FUNCIONARIOS;
-
-import ARMAZENAMENTO.ConstantesDoSistema;
-import java.io.Serializable;
-
-public abstract class Funcionario // Classes abstratas não podem ser instanciadas
-{
     // Definindo, a priori, os atributos
     protected String nome; // Sao protected para membros da mesma classe terem acesso
     protected String codigo;
@@ -35,7 +29,7 @@ public abstract class Funcionario // Classes abstratas não podem ser instanciad
     public void exibir() {
         System.out.println("NOME: " +nome);
         System.out.println("CODIGO: "+codigo);
-        System.out.println("SALARIO: R$"+salario);
+        System.out.println("SALARIO: R$ "+calcularSalarios());
         System.out.println("NIVEL: "+nivel);
     }
     

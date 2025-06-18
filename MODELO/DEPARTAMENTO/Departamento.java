@@ -124,7 +124,7 @@ public class Departamento
         {
             for (Funcionario func: funcionarios) //for each --> for (tipo elemento: vetor_ou_colecao)
             {
-                if (func.getCodigo().equals(codigo)) //se o codigo do funcionario for igual ao codigo procurado
+                if (func != null && func.getCodigo().equals(codigo)) //se o codigo do funcionario for igual ao codigo procurado
                 {
                     return func; //retorno o ponteiro
                 }
@@ -143,7 +143,7 @@ public class Departamento
         {
             for (Funcionario func: funcionarios)
             {
-                if (func.getNome().equalsIgnoreCase(nome)) //Se o nome do funcionario func for igual à chave procurada (ignorando se eh maiuscula ou minuscula)
+                if (func != null && func.getNome().equalsIgnoreCase(nome)) //Se o nome do funcionario func for igual à chave procurada (ignorando se eh maiuscula ou minuscula)
                 {
                     return func; //entao retorno o ponteiro para esse funcionario
                 }
@@ -187,7 +187,9 @@ public class Departamento
         System.out.println("========= FUNCIONARIOS =========");
 
         for (Funcionario func: funcionarios) //for each --> for (Tipo elemento: Array_ou_colecao)
-            func.exibir(); //Polimorfismo: o metodo se comporta de acordo com o tipo de objeto instanciado: tecnico, efeitvo ou substituto
+            if (func != null)
+                func.exibir(); //Polimorfismo: o metodo se comporta de acordo com o tipo de objeto instanciado: tecnico, efeitvo ou substituto
+
     }
     
     public void exibeTodosFuncionariosDoDepartamento()

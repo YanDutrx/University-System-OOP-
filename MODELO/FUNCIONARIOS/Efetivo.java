@@ -27,8 +27,8 @@ public class Efetivo extends Docente //o extends indica o mecanismo de heranca
     @Override //Sobrescrita do metodo calcularSalarios()
     public double calcularSalarios()
     {
-        return (salario + salario*ConstantesDoSistema.getAdicionalDocenteEfetivo(nivel) + ConstantesDoSistema.ADICIONAL_EFETIVO); 
-        //salario + (5% ou 10% ou 20%) do salario de acordo com o nivel + 5% do salario do profissional Docente Efetivo
+        double adicionalPorNivel = ConstantesDoSistema.getAdicionalDocenteEfetivo(nivel);
+        return (salario + (salario * adicionalPorNivel) + (salario * ConstantesDoSistema.ADICIONAL_EFETIVO));
     }
 
     @Override //Sobrescrita do metodo exibir()

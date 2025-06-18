@@ -26,7 +26,6 @@ public class Tecnico extends Funcionario //Mecanismo de heranca com a notacao "e
     {
         super.exibir(); //Reaproveitamento: chama o codigo da Superclasse
         System.out.println("FUNCAO: "+funcao); //Adiciona uma informacao escrita
-        System.out.println("SALARIO: R$"+calcularSalarios());
     }
 
     @Override //Sobrescrita do metodo calcularSalarios()
