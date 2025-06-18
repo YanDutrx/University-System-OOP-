@@ -1,6 +1,9 @@
 //Salvar o estado atual dos objetos em arquivos em formato binário para o seu computador
 //Sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória
 package MODELO.FUNCIONARIOS;
+
+    public abstract class Funcionario 
+    {
     // Definindo, a priori, os atributos
     protected String nome; // Sao protected para membros da mesma classe terem acesso
     protected String codigo;

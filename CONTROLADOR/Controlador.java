@@ -242,7 +242,6 @@ public class Controlador
     //Exibe todos os funcionarios de todos os departamentos
     public void exibeTodosFuncionariosDaUniversidade() //emite um relatório geral com todos os funcionários da universidade;
     {
-        universidade.geralUniversidade(); //Emite o relatorio geral
         if (universidade.getContDep() > 0)
         {
             Departamento[] departamentos = universidade.getDepartamentos();
